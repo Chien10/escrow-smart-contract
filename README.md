@@ -32,7 +32,7 @@ $ cargo test-bpf
 - By the time I write this README, the most active dApp has 2,050 active users per day compared to Facebook with half a billion active users a day.
 - Why haven't dApps yet received wide consumer adoption?
 
-# WHat is Solana?
+# What is Solana?
 - [Solana](https://solana.com/) is high performance, single-layer, permissionless open-source blockchain. In other words, Solana is a data storage for dApps.
 - Solana's native token is SOL and it can be divisible by up to one billion. 1e-9 SOL = 1 lamport.
 - The Solana ecosystem is still young and the platform just went to mainnet in March 2020
