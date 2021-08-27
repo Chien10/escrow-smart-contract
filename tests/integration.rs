@@ -1,3 +1,4 @@
+/*
 #![cfg(feature = "test-bpf")]
 
 use {
@@ -31,3 +32,4 @@ fn test_validator_transaction() {
 
     assert_matches!(rpc_client.send_and_confirm_transaction(&transaction), Ok(_));
 }
+*/
