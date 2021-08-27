@@ -36,3 +36,28 @@ $ cargo test-bpf
 - [Solana](https://solana.com/) is high performance, single-layer, permissionless open-source blockchain. In other words, Solana is a data storage for dApps.
 - Solana's native token is SOL and it can be divisible by up to one billion. 1e-9 SOL = 1 lamport.
 - The Solana ecosystem is still young and the platform just went to mainnet in March 2020
+
+# Common way to structure a Solana's program
+
+```
+.
+├─ src
+│  ├─ lib.rs -> registering modules
+│  ├─ entrypoint.rs -> entrypoint to the program
+│  ├─ instruction.rs -> program API, (de)serializing instruction data
+│  ├─ processor.rs -> program logic
+│  ├─ state.rs -> program objects, (de)serializing state
+│  ├─ error.rs -> program specific errors
+├─ .gitignore
+├─ Cargo.lock
+├─ Cargo.toml
+├─ Xargo.toml
+```
+
+The flow of a smart contract if you use the above structure:
+1. A client sends a request to the smart contract.
+2. The entrypoint receives the requests.
+3. The entrypoint forwards the arguments to the processor.
+4. The processor asks the `instruction.rs` to decode the `instruction_data` argument provided by the entrypoint.
+5.  With the decoded data, the processor decides which processing function to use to process the request.
+6. The process may use the `state.rs` to encode the state into or decode the state of an account which has been passed into the entrypoint.
